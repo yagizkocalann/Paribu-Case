@@ -64,4 +64,4 @@ This will use the `report-generator.js` script to read the Cucumber JSON report 
 
 - To avoid code duplication, all page-related actions are organized under the `pages/` directory.
 - The `hooks.js` file contains operations to be executed before and after tests.
-- Playwright configuration is located in `playwright.config.js`.
+- Playwright configuration is located in `playwright.config.js`.# Paribu-Case
