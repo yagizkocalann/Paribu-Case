@@ -1,0 +1,275 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login;display-error-for-invalid-login-credentials",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Display error for invalid login credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1120119749
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I open the Paribu homepage for login",
+            "match": {
+              "location": "step-definitions/web/login.step.js:9"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5002081790,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (/Users/yagizkocalan/Documents/GitHub/paribu-case/node_modules/@cucumber/cucumber/lib/time.js:64:20)\n    at listOnTimeout (node:internal/timers:573:17)\n    at process.processTimers (node:internal/timers:514:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "I dismiss the cookie banner on login page",
+            "match": {
+              "location": "step-definitions/web/login.step.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "I click the Login button",
+            "match": {
+              "location": "step-definitions/web/login.step.js:20"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I enter an invalid mobile number and password",
+            "match": {
+              "location": "step-definitions/web/login.step.js:24"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click the Submit button",
+            "match": {
+              "location": "step-definitions/web/login.step.js:28"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I should see an error message saying \"Girdiğiniz bilgileri kontrol\"",
+            "match": {
+              "location": "step-definitions/web/login.step.js:32"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 331300209
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login",
+    "tags": [],
+    "uri": "features/web/login.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "markets-page-buy-calculation;calculate-total-price-for-fan-filtered-crypto",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Calculate total price for FAN filtered crypto",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 951950208
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I navigate to the Paribu homepage",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:9"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 4175990917,
+              "error_message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('button', { name: 'Tüm çerezleri kabul et' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"to.be.visible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('button', { name: 'Tüm çerezleri kabul et' })\u001b[22m\n\n    at Proxy.<anonymous> (/Users/yagizkocalan/Documents/GitHub/paribu-case/node_modules/playwright/lib/matchers/expect.js:221:24)\n    at HomePage.assertPageLoaded (/Users/yagizkocalan/Documents/GitHub/paribu-case/pages/web/homePage.js:39:42)\n    at async HomePage.goto (/Users/yagizkocalan/Documents/GitHub/paribu-case/pages/web/homePage.js:16:5)\n    at async CustomWorld.<anonymous> (/Users/yagizkocalan/Documents/GitHub/paribu-case/step-definitions/web/markets.step.js:12:5)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I close the cookie notice",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:15"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I go to the Markets page",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:20"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I filter the list by FAN",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:24"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I change the price change timeframe to 12 hours",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:28"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I click the third cryptocurrency on the list",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:32"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I input the current price into the Unit Price field",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:36"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I input \"5\" into the Quantity field",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:40"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I should see the correct total price calculated",
+            "match": {
+              "location": "step-definitions/web/markets.step.js:44"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 743709
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "markets-page-buy-calculation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Markets Page Buy Calculation",
+    "tags": [],
+    "uri": "features/web/markets.feature"
+  }
+]
