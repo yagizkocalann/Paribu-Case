@@ -14,6 +14,17 @@ class MarketsPage {
         //this.totalPriceInput = page.getByRole('textbox', { name: 'Toplam fiyat' });
         this.totalPriceInput = page.locator('#total');
 
+        this.cryptoList = page.locator('div').filter({ hasText: 'Piyasa fiyatı' }).nth(4);
+        //this.cryptoList = page.getByText('Piyasa fiyatı ');
+        this.positiveChangeSelector = '.t-green-dim';
+        this.negativeChangeSelector = '.t-red-bright';
+
+        this.cryptoContexts = []; // initialize here to ensure it exists
+
+        this.sellTabButton = page.locator('#sell');
+        this.activeTabSelector = page.locator('button.active');
+
+        this.firstBuyOrderXPath = page.locator('xpath=/html/body/div[1]/main/div[2]/div[2]/div/div[2]/div/div[2]/div/div');
     }
 
     async goToMarkets() {
@@ -69,6 +80,61 @@ class MarketsPage {
         }
         return false;
     }
-}
 
+    async sortByMarketPriceDescending() {
+        await this.cryptoList.click();
+        await this.cryptoList.click();
+    }
+
+    // Placeholder for step definitions used in market-orders.step.js
+    async selectRandomPositiveGainers(count) {
+        await this.page.waitForSelector('section.market-list__item');
+        const greenMarkets = await this.page.$$('section.market-list__item:has(.t-green-dim)');
+
+        if (greenMarkets.length === 0) {
+            throw new Error('No positive gain cryptocurrencies found.');
+        }
+
+        const selected = greenMarkets.sort(() => 0.5 - Math.random()).slice(0, count);
+        this.cryptoContexts = [];
+
+        for (const market of selected) {
+            // Try to find an <a> inside to get href
+            const anchor = await market.$('a');
+            const href = anchor ? await anchor.getAttribute('href') : null;
+
+            if (!href) continue;
+
+            const [newPage] = await Promise.all([
+                this.page.context().waitForEvent('page'),
+                this.page.evaluate(url => window.open(url, '_blank'), href)
+            ]);
+
+            await newPage.waitForLoadState();
+            this.cryptoContexts.push(newPage);
+        }
+
+        if (this.cryptoContexts.length < count) {
+            throw new Error(`Only opened ${this.cryptoContexts.length} green assets in tabs`);
+        }
+    }
+
+    async openCryptoInNewTabs() {
+        // Deprecated: now handled inline in selectRandomPositiveGainers
+    }
+
+    async isSellTabActive() {
+        await this.sellTabButton.waitFor({ state: 'visible' });
+
+        const classAttribute = await this.sellTabButton.getAttribute('class');
+        console.log('[DEBUG] Sell tab class:', classAttribute);
+        console.log('[REPORT] Sell tab is active:', classAttribute?.includes('p-tab--selected'));
+        return classAttribute?.includes('p-tab--selected');
+    }
+
+    async clickFirstBuyOrderFromDom() {
+        await this.firstBuyOrderXPath.waitFor({ state: 'visible' });
+        await this.firstBuyOrderXPath.click();
+    }
+}
 module.exports = MarketsPage;
