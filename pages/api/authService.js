@@ -13,6 +13,16 @@ async function login(username, password) {
   }
 }
 
+async function checkLoginEndpoint() {
+  try {
+    const res = await axios.options(`${apiUrl}/auth/login`);
+    return res.status;
+  } catch (error) {
+    return error.response?.status || 500;
+  }
+}
+
 module.exports = {
-  login
+  login,
+  checkLoginEndpoint
 };

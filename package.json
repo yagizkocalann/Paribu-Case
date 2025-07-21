@@ -6,13 +6,15 @@
     "test": "cucumber-js",
     "test:api": "cucumber-js features/api --require step-definitions/api",
     "test:web": "cucumber-js features/web --require step-definitions/web",
+    "test:web:chromium": "cross-env BROWSER=chromium npm run test:web",
+    "test:web:firefox": "cross-env BROWSER=firefox npm run test:web",
+    "test:web:webkit": "cross-env BROWSER=webkit npm run test:web",
+    "test:web:edge": "cross-env BROWSER=edge npm run test:web",
     "test:web:all": "npm-run-all --parallel test:web:chromium test:web:firefox test:web:webkit",
-    "test:web:chromium": "BROWSER=chromium npm run test:web",
-    "test:web:firefox": "BROWSER=firefox npm run test:web",
-    "test:web:webkit": "BROWSER=webkit npm run test:web",
-    "test:web:edge": "BROWSER=edge npm run test:web",
+
     "report": "node support/generateHtmlReport.js",
-    "generate-report": "node ./report-generator.js"
+    "generate-report": "node ./report-generator.js",
+    "clean-report": "rm -rf reports/*.json reports/html"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^12.0.0",
     "@playwright/test": "^1.54.1",
+    "cross-env": "^7.0.3",
     "cucumber-html-reporter": "^7.2.0",
     "dotenv": "^17.2.0",
     "multiple-cucumber-html-reporter": "^3.9.3",

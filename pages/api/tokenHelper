@@ -1,0 +1,25 @@
+const { login } = require('./authService');
+
+let cachedToken = null;
+
+async function getToken() {
+    if (cachedToken) {
+        return cachedToken;
+    }
+
+    try {
+        const response = await login('emilys', 'emilyspass');
+        if (response?.status === 200) {
+            cachedToken = response.data?.token || response.data?.accessToken;
+            console.log('✅ Token retrieved and cached:', cachedToken);
+            return cachedToken;
+        } else {
+            throw new Error(`Login failed with status ${response.status}`);
+        }
+    } catch (error) {
+        console.error('❌ Error retrieving token:', error.message);
+        throw error;
+    }
+}
+
+module.exports = { getToken };

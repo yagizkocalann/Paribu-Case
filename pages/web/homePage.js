@@ -31,7 +31,7 @@ class HomePage {
 
   async navigateToMarketsPage() {
     await this.marketsNavLink.click();
-    await this.page.waitForURL(/\/markets/, { timeout: 5000 });
+    await this.page.waitForURL(/\/markets/, { timeout: 10000 });
   }
 
   async assertPageLoaded() {

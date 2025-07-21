@@ -13,17 +13,20 @@ Feature: Market Orders
         And I switch to the first crypto tab
         And I click a first buy order on the first tab and verify the price input
         And I verify that the Sell tab is active in the Buy-Sell form
-        And I verify corresponding input fields
+        And I verify corresponding sell input fields in first tab
         And I click a first sell order on the first tab and verify the price input
+        And I verify corresponding buy input fields fields in first tab
 
         And I switch to the second crypto tab
         And I click a first buy order on the second tab and verify the price input
         And I verify that the Sell tab is active in the Buy-Sell form
-        And I verify corresponding input fields
-        And I click a randfirstom sell order on the second tab and verify the price input
+        And I verify corresponding sell input fields fields in second tab
+        And I click a first sell order on the second tab and verify the price input
+        And I verify corresponding buy input fields fields in second tab
 
         And I switch to the third crypto tab
         And I click a first buy order on the third tab and verify the price input
         And I verify that the Sell tab is active in the Buy-Sell form
-        And I verify corresponding input fields
+        And I verify corresponding sell input fields fields in third tab
         And I click a first sell order on the third tab and verify the price input
+        And I verify corresponding buy input fields fields in third tab

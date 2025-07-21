@@ -25,7 +25,7 @@ npm install @cucumber/cucumber --save-dev   # Install Cucumber.js
 npm install @playwright/test --save-dev     # Install Playwright
 npx playwright install                      # Download browser binaries
 npm install axios dotenv --save             # (Optional) Used for API and env handling
-npm install --save-dev npm-run-all          # Required to run multiple npm scripts in parallel (e.g., for multi-browser test runs)
+npm install --save-dev cross-env            # Required for setting environment variables in a cross-platform way
 ```
 
 > `npx playwright install` downloads necessary browser binaries (Chromium, Firefox, WebKit)
@@ -36,6 +36,7 @@ npm install --save-dev npm-run-all          # Required to run multiple npm scrip
 npm test           # Run all tests
 npm run test:api   # Run API tests
 npm run test:web   # Run Web UI tests
+npm run test:web:all   # Run Web UI tests in all supported browsers in parallel
 npm run generate-report   # Generate HTML report from JSON results
 ```
 
@@ -45,6 +46,7 @@ npm run generate-report   # Generate HTML report from JSON results
 - [Cucumber.js](https://github.com/cucumber/cucumber-js)
 - [Node.js](https://nodejs.org/)
 - [Page Object Model](https://martinfowler.com/bliki/PageObject.html)
+- [cross-env](https://www.npmjs.com/package/cross-env)
 
 ## 📁 Environment Variables
 
@@ -56,6 +58,12 @@ After executing your tests, you can generate a visual HTML report using the foll
 
 ```bash
 npm run generate-report
+```
+
+To remove old report files before generating a new one, you can run:
+
+```bash
+npm run clean-report     # Delete old report files before generating a new one
 ```
 
 This will use the `report-generator.js` script to read the Cucumber JSON report and output a user-friendly HTML report inside the `reports/` directory.
