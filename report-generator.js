@@ -4,7 +4,7 @@ const report = require('multiple-cucumber-html-reporter');
 report.generate({
   jsonDir: './reports',
   reportPath: './reports/html',
-  metadata:{
+  metadata: {
     browser: { name: 'chrome', version: '114' },
     device: 'Local test machine',
     platform: { name: 'macOS', version: 'Ventura' }
